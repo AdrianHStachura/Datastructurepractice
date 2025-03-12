@@ -17,6 +17,15 @@ node* create(int data){
     new_node->next = NULL;
     return new_node;
 }
+// inserts at the end of a linked list
+node* insert_end(node* head){
+    while (head->next != NULL){
+        // go to the next one and repeat untill Null 
+        head = head->next;
+    }
+    create(data);
+    // last node and set next to new node
+}
 
 void print_list(node* head)
 {
@@ -37,6 +46,8 @@ void delete(node* head)
     free(head);
     
 }
+
+void
 
 int main(void){
     node* pode = create(50);
