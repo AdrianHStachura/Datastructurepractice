@@ -20,16 +20,23 @@ node* create(int data){
 
 void print_list(node* head)
 {
-    
+    if (head == NULL){
+        return;
     printf("%i\n", head->value);
     if (head->next != NULL){
         print_list(head->next);
     }
 }
 
-void free(node* head){
+void free_list(node* head)
+{
     // delete last  then progress all the way to the end
-    if (head->next != NULL)
+    if (head == NULL){
+        return;
+    }
+    free_list(head->next);
+    free(head);
+    
 }
 
 int main(void){
