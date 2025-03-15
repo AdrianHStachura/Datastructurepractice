@@ -18,13 +18,20 @@ node* create(int data){
     return new_node;
 }
 // inserts at the end of a linked list
-node* insert_end(node* head){
-    while (head->next != NULL){
-        // go to the next one and repeat untill Null 
-        head = head->next;
+node* insert_end(node* head, int data){
+    node* new_node = create(data);
+    if (head == NULL){
+        return new_node;
     }
-    create(data);
+    node* temp = head;
+    while (temp->next != NULL){
+        // go to the next one and repeat untill Null 
+        temp = temp->next;
+    }
+    
     // last node and set next to new node
+    temp->next = new_node;
+    return head;
 }
 
 void print_list(node* head)
